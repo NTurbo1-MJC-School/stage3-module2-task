@@ -3,10 +3,12 @@ package com.mjc.school.service.validator;
 import com.mjc.school.service.dto.AuthorDtoRequest;
 import com.mjc.school.service.dto.NewsDtoRequest;
 import com.mjc.school.service.exceptions.ValidatorException;
+import org.springframework.stereotype.Component;
 
 import static com.mjc.school.service.exceptions.ServiceErrorCode.*;
 import static com.mjc.school.service.exceptions.ServiceErrorCode.VALIDATE_STRING_LENGTH;
 
+@Component
 public class AuthorValidator {
     private static final String AUTHOR_ID = "Author id";
     private static final String AUTHOR_NAME = "Author name";
