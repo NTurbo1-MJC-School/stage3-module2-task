@@ -29,9 +29,10 @@ public class GetAuthorByIdCommand implements Command {
         System.out.println(Operations.GET_AUTHOR_BY_ID.getOperation());
         System.out.println(Constant.AUTHOR_ID_ENTER);
         try {
+            Long id = CommandHelper.getKeyboardNumber(Constant.AUTHOR_ID, keyboard);
             System.out.println(CommandHelper
                     .findCommandHandlerFor("4", authorController)
-                    .invoke(authorController, CommandHelper.getKeyboardNumber(Constant.AUTHOR_ID, keyboard)));
+                    .invoke(authorController, id));
         } catch (IllegalAccessException e) {
             throw new RuntimeException(e);
         } catch (InvocationTargetException e) {

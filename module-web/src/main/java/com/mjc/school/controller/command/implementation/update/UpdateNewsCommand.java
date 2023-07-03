@@ -43,18 +43,13 @@ public class UpdateNewsCommand implements Command {
                 Long authorId = CommandHelper.getKeyboardNumber(Constant.AUTHOR_ID, keyboard);
                 dtoRequest = new NewsDtoRequest(newsId, title, content, authorId);
                 isValid = true;
+
+                System.out.println(CommandHelper
+                        .findCommandHandlerFor("7", newsController)
+                        .invoke(newsController, dtoRequest));
             } catch (Exception ex) {
                 System.out.println(ex.getMessage());
             }
-        }
-        try {
-            System.out.println(CommandHelper
-                    .findCommandHandlerFor("7", newsController)
-                    .invoke(newsController, dtoRequest));
-        } catch (IllegalAccessException e) {
-            throw new RuntimeException(e);
-        } catch (InvocationTargetException e) {
-            throw new RuntimeException(e);
         }
     }
 }

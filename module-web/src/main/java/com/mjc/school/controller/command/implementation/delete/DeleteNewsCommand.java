@@ -30,7 +30,8 @@ public class DeleteNewsCommand implements Command {
         System.out.println(Operations.REMOVE_NEWS_BY_ID.getOperation());
         System.out.println(Constant.NEWS_ID_ENTER);
         try {
-            System.out.println(CommandHelper.findCommandHandlerFor("9", newsController).invoke(newsController, CommandHelper.getKeyboardNumber(Constant.NEWS_ID, keyboard)));
+            Long id = CommandHelper.getKeyboardNumber(Constant.NEWS_ID, keyboard);
+            System.out.println(CommandHelper.findCommandHandlerFor("9", newsController).invoke(newsController, id));
         } catch (IllegalAccessException e) {
             throw new RuntimeException(e);
         } catch (InvocationTargetException e) {

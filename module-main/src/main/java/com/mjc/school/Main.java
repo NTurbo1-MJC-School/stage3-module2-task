@@ -16,22 +16,26 @@ public class Main {
     CommandReceiver commandReceiver = context.getBean(CommandReceiver.class);
 
     while (true) {
-      commandReceiver.printMainMenu();
-      String command = keyboard.nextLine();
+      try {
+        commandReceiver.printMainMenu();
+        String command = keyboard.nextLine();
 
-      switch (command) {
-        case "1" -> commandReceiver.getAllNews();
-        case "2" -> commandReceiver.getAllAuthors();
-        case "3" -> commandReceiver.getNewsById();
-        case "4" -> commandReceiver.getAuthorById();
-        case "5" -> commandReceiver.createNews();
-        case "6" -> commandReceiver.createAuthor();
-        case "7" -> commandReceiver.updateNews();
-        case "8" -> commandReceiver.updateAuthor();
-        case "9" -> commandReceiver.deleteNews();
-        case "10" -> commandReceiver.deleteAuthor();
-        case "0" -> commandReceiver.exit();
-        default -> System.out.println(COMMAND_NOT_FOUND);
+        switch (command) {
+          case "1" -> commandReceiver.getAllNews();
+          case "2" -> commandReceiver.getAllAuthors();
+          case "3" -> commandReceiver.getNewsById();
+          case "4" -> commandReceiver.getAuthorById();
+          case "5" -> commandReceiver.createNews();
+          case "6" -> commandReceiver.createAuthor();
+          case "7" -> commandReceiver.updateNews();
+          case "8" -> commandReceiver.updateAuthor();
+          case "9" -> commandReceiver.deleteNews();
+          case "10" -> commandReceiver.deleteAuthor();
+          case "0" -> commandReceiver.exit();
+          default -> System.out.println(COMMAND_NOT_FOUND);
+        }
+      } catch (Exception e) {
+        System.out.println(e.getMessage());
       }
     }
   }

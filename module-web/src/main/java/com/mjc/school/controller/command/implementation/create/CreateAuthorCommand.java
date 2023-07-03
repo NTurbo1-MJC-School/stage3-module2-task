@@ -36,17 +36,11 @@ public class CreateAuthorCommand implements Command {
                 String name = keyboard.nextLine();
                 dtoRequest = new AuthorDtoRequest(null, name);
                 isValid = true;
+
+                System.out.println(CommandHelper.findCommandHandlerFor("6", authorController).invoke(authorController, dtoRequest));
             } catch (Exception ex) {
                 System.out.println(ex.getMessage());
             }
-        }
-
-        try {
-            System.out.println(CommandHelper.findCommandHandlerFor("6", authorController).invoke(authorController, dtoRequest));
-        } catch (IllegalAccessException e) {
-            throw new RuntimeException(e);
-        } catch (InvocationTargetException e) {
-            throw new RuntimeException(e);
         }
     }
 }

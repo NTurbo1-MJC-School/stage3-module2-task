@@ -29,7 +29,8 @@ public class DeleteAuthorCommand implements Command {
         System.out.println(Operations.REMOVE_AUTHOR_BY_ID.getOperation());
         System.out.println(Constant.AUTHOR_ID_ENTER);
         try {
-            System.out.println(CommandHelper.findCommandHandlerFor("10", authorController).invoke(authorController, CommandHelper.getKeyboardNumber(Constant.AUTHOR_ID, keyboard)));
+            Long id = CommandHelper.getKeyboardNumber(Constant.AUTHOR_ID, keyboard);
+            System.out.println(CommandHelper.findCommandHandlerFor("10", authorController).invoke(authorController, id));
         } catch (IllegalAccessException e) {
             throw new RuntimeException(e);
         } catch (InvocationTargetException e) {

@@ -40,18 +40,13 @@ public class UpdateAuthorCommand implements Command {
                 String name = keyboard.nextLine();
                 dtoRequest = new AuthorDtoRequest(authorId, name);
                 isValid = true;
+
+                System.out.println(CommandHelper
+                        .findCommandHandlerFor("8", authorController)
+                        .invoke(authorController, dtoRequest));
             } catch (Exception ex) {
                 System.out.println(ex.getMessage());
             }
-        }
-        try {
-            System.out.println(CommandHelper
-                    .findCommandHandlerFor("8", authorController)
-                    .invoke(authorController, dtoRequest));
-        } catch (IllegalAccessException e) {
-            throw new RuntimeException(e);
-        } catch (InvocationTargetException e) {
-            throw new RuntimeException(e);
         }
     }
 }
