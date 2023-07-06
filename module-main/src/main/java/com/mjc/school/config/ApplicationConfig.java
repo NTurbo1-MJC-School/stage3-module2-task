@@ -9,8 +9,4 @@ import java.util.Scanner;
 @Configuration
 @ComponentScan(basePackages = {"com.mjc.school"})
 public class ApplicationConfig {
-    @Bean("keyboardScanner")
-    public Scanner keyboardScanner() {
-        return new Scanner(System.in);
-    }
 }

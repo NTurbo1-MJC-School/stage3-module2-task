@@ -20,10 +20,9 @@ public class UpdateNewsCommand implements Command {
     private Scanner keyboard;
 
     @Autowired
-    public UpdateNewsCommand(@Qualifier("keyboardScanner") Scanner keyboard,
-                             @Qualifier("newsController") BaseController newsController) {
+    public UpdateNewsCommand(@Qualifier("newsController") BaseController newsController) {
         this.newsController = newsController;
-        this.keyboard = keyboard;
+        this.keyboard = new Scanner(System.in);
     }
 
     @Override

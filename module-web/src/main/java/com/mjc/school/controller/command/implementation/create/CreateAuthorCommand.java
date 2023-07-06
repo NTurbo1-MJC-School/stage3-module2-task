@@ -9,8 +9,6 @@ import com.mjc.school.service.dto.AuthorDtoRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
-
-import java.lang.reflect.InvocationTargetException;
 import java.util.Scanner;
 
 @Component
@@ -20,10 +18,9 @@ public class CreateAuthorCommand implements Command {
     private Scanner keyboard;
 
     @Autowired
-    public CreateAuthorCommand(@Qualifier("keyboardScanner") Scanner keyboard,
-                               @Qualifier("authorController") BaseController authorController) {
+    public CreateAuthorCommand(@Qualifier("authorController") BaseController authorController) {
         this.authorController = authorController;
-        this.keyboard = keyboard;
+        this.keyboard = new Scanner(System.in);
     }
     @Override
     public void execute() {

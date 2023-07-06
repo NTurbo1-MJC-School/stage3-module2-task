@@ -19,10 +19,9 @@ public class GetAuthorByIdCommand implements Command {
     private Scanner keyboard;
 
     @Autowired
-    public GetAuthorByIdCommand(@Qualifier("keyboardScanner") Scanner keyboard,
-                                @Qualifier("authorController") BaseController authorController) {
+    public GetAuthorByIdCommand(@Qualifier("authorController") BaseController authorController) {
         this.authorController = authorController;
-        this.keyboard = keyboard;
+        this.keyboard = new Scanner(System.in);
     }
     @Override
     public void execute() {

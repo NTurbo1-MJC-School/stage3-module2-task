@@ -9,8 +9,6 @@ import java.util.Scanner;
 
 @Component
 public class CommandReceiver {
-
-    private Scanner keyboard;
     private Command createAuthorCommand;
     private Command createNewsCommand;
     private Command deleteAuthorCommand;
@@ -25,8 +23,7 @@ public class CommandReceiver {
     private Command printMainMenuCommand;
 
     @Autowired
-    public CommandReceiver(@Qualifier("keyboardScanner") Scanner keyboard,
-                           @Qualifier("createAuthorCommand") Command createAuthorCommand,
+    public CommandReceiver(@Qualifier("createAuthorCommand") Command createAuthorCommand,
                            @Qualifier("createNewsCommand") Command createNewsCommand,
                            @Qualifier("deleteAuthorCommand") Command deleteAuthorCommand,
                            @Qualifier("deleteNewsCommand") Command deleteNewsCommand,
@@ -38,7 +35,6 @@ public class CommandReceiver {
                            @Qualifier("updateNewsCommand") Command updateNewsCommand,
                            @Qualifier("exitCommand") Command exitCommand,
                            @Qualifier("printMainMenuCommand") Command printMainMenuCommand) {
-        this.keyboard = keyboard;
         this.createAuthorCommand = createAuthorCommand;
         this.createNewsCommand = createNewsCommand;
         this.deleteAuthorCommand = deleteAuthorCommand;
@@ -100,58 +96,5 @@ public class CommandReceiver {
     public void printMainMenu() {
         printMainMenuCommand.execute();
     }
-
-
-    //Getters
-    public Command getCreateAuthorCommand() {
-        return createAuthorCommand;
-    }
-
-    public Command getCreateNewsCommand() {
-        return createNewsCommand;
-    }
-
-    public Command getDeleteAuthorCommand() {
-        return deleteAuthorCommand;
-    }
-
-    public Command getDeleteNewsCommand() {
-        return deleteNewsCommand;
-    }
-
-    public Command getGetAllAuthorsCommand() {
-        return getAllAuthorsCommand;
-    }
-
-    public Command getGetAllNewsCommand() {
-        return getAllNewsCommand;
-    }
-
-    public Command getGetAuthorByIdCommand() {
-        return getAuthorByIdCommand;
-    }
-
-    public Command getGetNewsByIdCommand() {
-        return getNewsByIdCommand;
-    }
-
-    public Command getUpdateAuthorCommand() {
-        return updateAuthorCommand;
-    }
-
-    public Command getUpdateNewsCommand() {
-        return updateNewsCommand;
-    }
-
-    public Command getExitCommand() {
-        return exitCommand;
-    }
-
-    public Command getPrintMainMenuCommand() {
-        return printMainMenuCommand;
-    }
-
-    public Scanner getKeyboard() {
-        return keyboard;
-    }
+    
 }

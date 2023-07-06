@@ -19,10 +19,9 @@ public class GetNewsByIdCommand implements Command {
     private Scanner keyboard;
 
     @Autowired
-    public GetNewsByIdCommand(@Qualifier("keyboardScanner") Scanner keyboard,
-                              @Qualifier("newsController") BaseController newsController) {
+    public GetNewsByIdCommand(@Qualifier("newsController") BaseController newsController) {
         this.newsController = newsController;
-        this.keyboard = keyboard;
+        this.keyboard = new Scanner(System.in);
     }
 
     @Override

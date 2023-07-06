@@ -21,10 +21,9 @@ public class UpdateAuthorCommand implements Command {
     private Scanner keyboard;
 
     @Autowired
-    public UpdateAuthorCommand(@Qualifier("keyboardScanner") Scanner keyboard,
-                               @Qualifier("authorController") BaseController authorController) {
+    public UpdateAuthorCommand(@Qualifier("authorController") BaseController authorController) {
         this.authorController = authorController;
-        this.keyboard = keyboard;
+        this.keyboard = new Scanner(System.in);
     }
 
     @Override

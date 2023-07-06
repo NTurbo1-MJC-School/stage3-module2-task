@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.Scanner;
 
 @Component
@@ -20,10 +19,9 @@ public class CreateNewsCommand implements Command {
     private Scanner keyboard;
 
     @Autowired
-    public CreateNewsCommand(@Qualifier("keyboardScanner") Scanner keyboard,
-                             @Qualifier("newsController") BaseController newsController) {
+    public CreateNewsCommand(@Qualifier("newsController") BaseController newsController) {
         this.newsController = newsController;
-        this.keyboard = keyboard;
+        this.keyboard = new Scanner(System.in);
     }
     @Override
     public void execute() {

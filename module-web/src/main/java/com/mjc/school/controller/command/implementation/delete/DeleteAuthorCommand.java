@@ -19,10 +19,9 @@ public class DeleteAuthorCommand implements Command {
     private Scanner keyboard;
 
     @Autowired
-    public DeleteAuthorCommand(@Qualifier("keyboardScanner") Scanner keyboard,
-                               @Qualifier("authorController") BaseController authorController) {
+    public DeleteAuthorCommand(@Qualifier("authorController") BaseController authorController) {
         this.authorController = authorController;
-        this.keyboard = keyboard;
+        this.keyboard = new Scanner(System.in);
     }
     @Override
     public void execute() {
